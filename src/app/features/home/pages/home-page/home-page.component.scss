@@ -1,0 +1,128 @@
+.home-executive {
+  margin-top: -0.8rem;
+}
+
+.home-executive__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.home-executive__panel {
+  padding: 2rem 2.2rem;
+}
+
+.home-executive__panel h2 {
+  margin: 1rem 0 0.9rem;
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.08;
+}
+
+.home-executive__panel p {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--color-text-muted);
+  line-height: 1.9;
+}
+
+.home-executive__stats {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-executive__stats div {
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  box-shadow: var(--shadow-card);
+}
+
+.home-executive__stats strong,
+.home-executive__stats span {
+  display: block;
+}
+
+.home-executive__stats strong {
+  margin-bottom: 0.45rem;
+  color: var(--color-title);
+  font-size: 1.05rem;
+}
+
+.home-executive__stats span {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.home-differentials {
+  position: relative;
+  color: white;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.2), transparent 22%),
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 22%),
+    linear-gradient(135deg, #050b16 0%, #081120 45%, #0b1730 100%);
+}
+
+.home-differentials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 85%);
+  pointer-events: none;
+}
+
+.home-differentials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.home-signature {
+  position: relative;
+}
+
+.home-signature__content {
+  padding: 2.2rem 2.4rem;
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at top right, rgba(34, 211, 238, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(10, 21, 40, 0.9), rgba(8, 17, 32, 0.9));
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  box-shadow: var(--shadow-soft);
+}
+
+.home-signature__content h2 {
+  margin: 1rem 0 0.9rem;
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.9vw, 2.8rem);
+  line-height: 1.08;
+}
+
+.home-signature__content p {
+  margin: 0;
+  max-width: 70ch;
+  color: var(--color-text-muted);
+  line-height: 1.85;
+}
+
+.home-contact {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .home-executive__grid,
+  .home-contact {
+    grid-template-columns: 1fr;
+  }
+}

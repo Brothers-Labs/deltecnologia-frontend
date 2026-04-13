@@ -1,0 +1,82 @@
+<div class="portal-shell">
+  <mat-sidenav-container class="portal-shell__container">
+    <mat-sidenav
+      class="portal-shell__sidenav"
+      [mode]="isMobile() ? 'over' : 'side'"
+      [opened]="isMobile() ? sidebarOpened() : true"
+      [fixedInViewport]="isMobile()"
+      [autoFocus]="false"
+      (closedStart)="closeSidebar()"
+    >
+      <div class="portal-shell__brand">
+        <div class="portal-shell__brand-mark">DT</div>
+        <div>
+          <span class="eyebrow">Portal Del</span>
+          <strong>{{ user()?.company || 'Del Tecnologia' }}</strong>
+          <p>{{ user()?.roleLabel || 'Acesso corporativo' }}</p>
+        </div>
+      </div>
+
+      <div class="portal-shell__nav">
+        @for (item of navigationItems(); track item.route) {
+          <a
+            class="portal-shell__nav-item"
+            [routerLink]="item.route"
+            routerLinkActive="portal-shell__nav-item--active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeSidebar()"
+          >
+            <mat-icon>{{ item.icon }}</mat-icon>
+            <div>
+              <strong>{{ item.label }}</strong>
+              <span>{{ item.description }}</span>
+            </div>
+          </a>
+        }
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="portal-shell__support">
+        <span class="eyebrow">Canal direto</span>
+        <h3>Atendimento premium para sua operacao.</h3>
+        <p>Fale com a equipe Del para suporte tecnico, planejamento ou alinhamentos estrategicos.</p>
+        <a mat-stroked-button [routerLink]="supportRoute" (click)="closeSidebar()">
+          <mat-icon>forum</mat-icon>
+          Acionar atendimento
+        </a>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="portal-shell__content">
+      <header class="portal-shell__topbar">
+        <button mat-icon-button type="button" class="portal-shell__menu-button" (click)="toggleSidebar()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <a class="portal-shell__desktop-brand" [routerLink]="navigationItems()[0]?.route ?? '/area-del/visao-geral'">
+          <div class="portal-shell__desktop-mark">DT</div>
+          <div>
+            <span class="eyebrow">Portal Del</span>
+            <strong>{{ user()?.company || 'Del Tecnologia' }}</strong>
+          </div>
+        </a>
+
+        <div class="portal-shell__actions">
+          <div class="portal-shell__identity">
+            <span>{{ user()?.name || 'Conta autenticada' }}</span>
+            <strong>{{ user()?.roleLabel || 'Acesso corporativo' }}</strong>
+          </div>
+          <button mat-stroked-button type="button" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            Sair
+          </button>
+        </div>
+      </header>
+
+      <main class="portal-shell__main">
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,16 @@
+.services-page__hero {
+  padding: 2rem;
+}
+
+.services-page__band {
+  color: white;
+  background:
+    radial-gradient(circle at top right, rgba(38, 166, 209, 0.2), transparent 26%),
+    linear-gradient(135deg, #0d294d 0%, #083d74 100%);
+}
+
+.services-page__differentials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}

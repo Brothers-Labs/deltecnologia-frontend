@@ -1,0 +1,32 @@
+<section class="section-block">
+  <div class="page-shell services-page__hero surface-panel" appScrollReveal appScrollRevealOrigin="scale">
+    <app-section-title
+      eyebrow="Portfólio técnico"
+      title="Serviços desenhados para sustentar desempenho, segurança e inteligência operacional."
+      description="Nosso portfólio atende instituições que precisam de uma estrutura técnica confiável, organizada e preparada para evoluir o parque tecnológico com consistência."
+    ></app-section-title>
+  </div>
+</section>
+
+<app-services-section
+  [services]="services"
+  [showCta]="false"
+  title="Atuação completa em tecnologia médica"
+  description="Da rotina preventiva ao planejamento tecnológico hospitalar, cada serviço é estruturado para fortalecer governança, disponibilidade e previsibilidade."
+></app-services-section>
+
+<section class="section-block section-block--tight services-page__band">
+  <div class="page-shell" appScrollReveal>
+    <app-section-title
+      eyebrow="Como atuamos"
+      title="Uma entrega técnica que combina método, proximidade e visão consultiva."
+      description="Cada projeto é conduzido com diagnóstico, priorização, execução rastreável e acompanhamento contínuo dos resultados."
+    ></app-section-title>
+
+    <div class="services-page__differentials">
+      @for (item of differentials; track item.title) {
+        <app-differential-card [item]="item"></app-differential-card>
+      }
+    </div>
+  </div>
+</section>

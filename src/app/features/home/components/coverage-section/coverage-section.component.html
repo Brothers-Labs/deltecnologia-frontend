@@ -1,0 +1,25 @@
+<section class="section-block">
+  <div class="page-shell">
+    <app-section-title
+      eyebrow="Area de atuacao"
+      title="Atendimento preparado para operacoes criticas e ambientes assistenciais de alta responsabilidade."
+      description="A Del Tecnologia atua com visao tecnica e organizacional para diferentes perfis de instituicoes de saude que dependem de ativos eletromedicos confiaveis e bem geridos."
+    ></app-section-title>
+
+    <div class="coverage__layout">
+      <div class="grid-auto-fit">
+        @for (item of items; track item.title) {
+          <app-info-card [item]="item"></app-info-card>
+        }
+      </div>
+
+      <figure class="coverage__visual surface-panel" appScrollReveal appScrollRevealOrigin="left">
+        <img [src]="imagePath" alt="Atuacao da Del Tecnologia em operacoes de saude, hospitais e ambientes assistenciais.">
+        <figcaption>
+          <strong>Presenca preparada para ambientes criticos</strong>
+          <span>Hospitais, clinicas, laboratorios e operacoes com alta exigencia tecnica.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,326 @@
+.register-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  overflow: hidden;
+}
+
+.register-page__scene {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.register-page__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(96, 165, 250, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.62), transparent 88%);
+}
+
+.register-page__beam {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.34;
+}
+
+.register-page__beam--one {
+  top: 8%;
+  left: -4%;
+  width: 330px;
+  height: 330px;
+  background: rgba(34, 211, 238, 0.16);
+}
+
+.register-page__beam--two {
+  right: -6%;
+  bottom: 8%;
+  width: 400px;
+  height: 400px;
+  background: rgba(37, 99, 235, 0.16);
+}
+
+.register-page__shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1.8rem;
+  align-items: stretch;
+}
+
+.register-page__brand,
+.register-card {
+  padding: 2rem;
+}
+
+.register-page__brand {
+  display: grid;
+  gap: 2rem;
+}
+
+.register-page__brand-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.register-page__brand-mark {
+  width: 66px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #7dd3fc, #60a5fa 55%, #22d3ee);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  box-shadow: 0 18px 30px rgba(34, 211, 238, 0.18);
+}
+
+.register-page__brand-copy h1 {
+  margin: 0.8rem 0 0.5rem;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.register-page__brand-copy p {
+  max-width: 50ch;
+  line-height: 1.8;
+}
+
+.register-page__content h2 {
+  margin: 0 0 1rem;
+  max-width: 15ch;
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+}
+
+.register-page__content > p {
+  max-width: 58ch;
+  line-height: 1.9;
+}
+
+.register-page__timeline {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.register-page__step {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 1rem;
+  padding: 1.1rem;
+  border-radius: 22px;
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+}
+
+.register-page__step span:first-child {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.register-page__step strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-title);
+}
+
+.register-page__step p {
+  line-height: 1.75;
+}
+
+.register-page__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.register-page__chips span {
+  padding: 0.78rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-title);
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.register-card {
+  display: grid;
+  align-content: center;
+  gap: 1.5rem;
+}
+
+.register-card__header h2 {
+  margin: 0.85rem 0 0.7rem;
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  letter-spacing: -0.04em;
+}
+
+.register-card__header p {
+  line-height: 1.8;
+}
+
+.register-card__form {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.register-card__section-label {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--color-title);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.register-card__radio-group {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.register-card__profile-option {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0.9rem;
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(96, 165, 250, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.register-card__profile-option--active {
+  border-color: rgba(96, 165, 250, 0.26);
+  background: rgba(96, 165, 250, 0.08);
+}
+
+.register-card__profile-option strong,
+.register-card__profile-option span {
+  display: block;
+}
+
+.register-card__profile-option strong {
+  margin-bottom: 0.35rem;
+  color: var(--color-title);
+}
+
+.register-card__profile-option span {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.register-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.register-card__checks {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.register-card__check-error {
+  color: #ffb4ab;
+  font-size: 0.82rem;
+}
+
+.register-card__submit {
+  min-height: 52px;
+  color: #06101f;
+  background: linear-gradient(135deg, #7dd3fc, #60a5fa 55%, #22d3ee);
+  box-shadow: 0 16px 28px rgba(34, 211, 238, 0.16);
+}
+
+.register-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.register-card__footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.register-card__footer a {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+:host ::ng-deep .mat-mdc-form-field {
+  --mdc-outlined-text-field-container-shape: 18px;
+  --mdc-outlined-text-field-outline-color: rgba(148, 163, 184, 0.28);
+  --mdc-outlined-text-field-hover-outline-color: rgba(96, 165, 250, 0.38);
+  --mdc-outlined-text-field-focus-outline-color: rgba(34, 211, 238, 0.78);
+  --mdc-outlined-text-field-label-text-color: var(--color-text-muted);
+  --mdc-outlined-text-field-input-text-color: var(--color-title);
+}
+
+@media (max-width: 991px) {
+  .register-page__shell {
+    grid-template-columns: 1fr;
+  }
+
+  .register-page__brand,
+  .register-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .register-page {
+    padding: 1rem 0 2rem;
+  }
+
+  .register-page__brand-mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    font-size: 1.2rem;
+  }
+
+  .register-card__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .register-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .register-card__footer-links {
+    justify-content: flex-start;
+  }
+
+  .register-card__submit {
+    width: 100%;
+  }
+}

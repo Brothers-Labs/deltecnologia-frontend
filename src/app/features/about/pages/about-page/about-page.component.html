@@ -1,0 +1,31 @@
+<section class="section-block">
+  <div class="page-shell about-page__hero surface-panel" appScrollReveal appScrollRevealOrigin="scale">
+    <app-section-title
+      eyebrow="Sobre a empresa"
+      title="Uma empresa orientada por excelência técnica e confiança no ambiente da saúde."
+      description="A Del Tecnologia foi concebida para atuar além da manutenção tradicional. Nosso foco está em transformar a gestão dos ativos eletromédicos em um fator real de organização, eficiência e segurança operacional."
+    ></app-section-title>
+
+    <div class="about-page__text">
+      <p>
+        Entendemos a engenharia clínica como um eixo estratégico da instituição de saúde. Por isso,
+        trabalhamos com processos claros, atendimento especializado e uma visão que combina tecnologia,
+        governança e performance.
+      </p>
+      <p>
+        Nosso compromisso é entregar consistência operacional e suporte técnico qualificado para que as
+        equipes possam concentrar esforços naquilo que realmente importa: a qualidade da assistência.
+      </p>
+    </div>
+  </div>
+</section>
+
+<app-about-section [pillars]="pillars" [compact]="true"></app-about-section>
+
+<app-benefits-section
+  [items]="benefits"
+  title="Compromisso contínuo com inovação, segurança e eficiência"
+  description="A Del Tecnologia fortalece a estrutura técnica das instituições com soluções que geram controle, previsibilidade e confiança."
+></app-benefits-section>
+
+<app-coverage-section [items]="coverage"></app-coverage-section>

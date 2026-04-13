@@ -1,0 +1,117 @@
+.services__spotlight {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 1.75rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.services__spotlight-copy {
+  padding: 1.2rem 1.3rem;
+}
+
+.services__spotlight-copy h3 {
+  margin: 0.9rem 0 0.9rem;
+  font-size: clamp(1.7rem, 3vw, 2.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: var(--color-title);
+}
+
+.services__spotlight-copy p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.85;
+}
+
+.services__spotlight-media img {
+  width: 100%;
+  display: block;
+  max-height: 430px;
+  border-radius: 24px;
+  object-fit: contain;
+  object-position: center center;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.96), rgba(216, 241, 248, 0.9) 58%, rgba(191, 229, 243, 0.84) 100%);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.services__card {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  padding: 1.9rem;
+  border-color: var(--color-border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.services__card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.services__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 46px rgba(2, 6, 23, 0.34);
+  border-color: rgba(96, 165, 250, 0.24);
+}
+
+.services__card:hover::before {
+  opacity: 1;
+}
+
+.services__icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.25rem;
+  border-radius: 18px;
+  color: var(--color-accent);
+  background: rgba(96, 165, 250, 0.14);
+  border: 1px solid rgba(96, 165, 250, 0.18);
+}
+
+.services__card h3 {
+  margin: 0 0 0.8rem;
+  color: var(--color-title);
+}
+
+.services__card p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.services__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 991px) {
+  .services__spotlight {
+    grid-template-columns: 1fr;
+  }
+
+  .services__spotlight-media img {
+    max-height: 360px;
+  }
+}

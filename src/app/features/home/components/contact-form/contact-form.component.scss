@@ -1,0 +1,71 @@
+.contact-form {
+  padding: 2.25rem;
+  border-color: var(--color-border);
+  background: linear-gradient(180deg, rgba(10, 21, 40, 0.94), rgba(8, 17, 32, 0.92));
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-form__header h3 {
+  margin: 1rem 0 0.75rem;
+  font-size: 1.6rem;
+  color: var(--color-title);
+}
+
+.contact-form__header p {
+  margin: 0 0 1.5rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.contact-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-form__message {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+:host ::ng-deep .mat-mdc-form-field {
+  --mdc-outlined-text-field-container-shape: 18px;
+  --mdc-outlined-text-field-outline-color: rgba(148, 163, 184, 0.28);
+  --mdc-outlined-text-field-hover-outline-color: rgba(96, 165, 250, 0.38);
+  --mdc-outlined-text-field-focus-outline-color: rgba(34, 211, 238, 0.78);
+  --mdc-outlined-text-field-label-text-color: var(--color-text-muted);
+  --mdc-outlined-text-field-input-text-color: var(--color-title);
+  --mat-form-field-focus-select-arrow-color: var(--color-accent);
+  --mat-form-field-focus-state-layer-opacity: 0;
+}
+
+:host ::ng-deep .mat-mdc-form-field-subscript-wrapper,
+:host ::ng-deep .mdc-text-field--outlined {
+  background: transparent;
+}
+
+button[type='submit'] {
+  margin-top: 1rem;
+  min-width: 220px;
+  color: #06101f;
+  background: linear-gradient(135deg, #7dd3fc, #60a5fa 55%, #22d3ee);
+  box-shadow: 0 16px 24px rgba(34, 211, 238, 0.18);
+}
+
+button[type='submit'] .mat-mdc-progress-spinner {
+  margin-right: 0.4rem;
+}
+
+@media (max-width: 767px) {
+  .contact-form {
+    padding: 1.25rem;
+  }
+
+  .contact-form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  button[type='submit'] {
+    width: 100%;
+  }
+}

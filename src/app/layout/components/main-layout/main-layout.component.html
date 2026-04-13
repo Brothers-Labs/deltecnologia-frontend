@@ -1,0 +1,120 @@
+<mat-sidenav-container class="layout">
+  <div class="tech-scene" aria-hidden="true">
+    <div class="tech-scene__grid"></div>
+    <div class="tech-scene__beam tech-scene__beam--one"></div>
+    <div class="tech-scene__beam tech-scene__beam--two"></div>
+    <div class="tech-scene__beam tech-scene__beam--three"></div>
+
+    @for (particle of techParticles; track particle.id) {
+      <span
+        class="tech-scene__particle"
+        [style.top.%]="particle.top"
+        [style.left.%]="particle.left"
+        [style.width.px]="particle.size"
+        [style.height.px]="particle.size"
+        [style.animationDelay.ms]="particle.delay"
+        [style.animationDuration.s]="particle.duration"
+      ></span>
+    }
+  </div>
+
+  <mat-sidenav
+    class="layout__sidenav"
+    [class.layout__sidenav--open]="mobileMenuOpen"
+    [opened]="mobileMenuOpen"
+    mode="over"
+    position="end"
+    (closedStart)="closeMobileMenu()"
+  >
+    <div class="layout__sidenav-shell">
+      <div class="layout__sidenav-header">
+        <div>
+          <span class="eyebrow">Menu executivo</span>
+          <h2>{{ company.shortName }}</h2>
+          <p>Tecnologia médica e engenharia clínica com visão estratégica.</p>
+          <div class="layout__mobile-brand-meta">
+            <span>Tecnologia Médica</span>
+            <span class="layout__mobile-brand-dot"></span>
+            <span>Engenharia Clínica</span>
+          </div>
+        </div>
+
+        <button
+          mat-icon-button
+          type="button"
+          class="layout__close-button"
+          (click)="closeMobileMenu()"
+          aria-label="Fechar menu"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+      <div class="layout__sidenav-panel">
+        <mat-nav-list class="layout__nav-list">
+          @for (item of navItems; track item.route) {
+            <a
+              mat-list-item
+              class="layout__mobile-link"
+              [routerLink]="item.route"
+              routerLinkActive="layout__mobile-link--active"
+              [routerLinkActiveOptions]="{ exact: item.exact ?? item.route === '/' }"
+            >
+              <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+              <span matListItemTitle>{{ item.label }}</span>
+            </a>
+          }
+        </mat-nav-list>
+
+        <mat-divider></mat-divider>
+
+        <div class="layout__menu-contact">
+          <a mat-stroked-button class="layout__mobile-login" routerLink="/login">
+            Entrar na area Del
+          </a>
+          <a mat-flat-button class="layout__mobile-cta" routerLink="/contato">
+            Falar com a Del
+          </a>
+          <a mat-stroked-button class="layout__mobile-secondary" [href]="company.whatsappUrl" target="_blank" rel="noreferrer">
+            WhatsApp direto
+          </a>
+        </div>
+
+        <div class="layout__sidenav-meta">
+          <div>
+            <strong>Telefone</strong>
+            <a [href]="company.phoneUrl">{{ company.phone }}</a>
+          </div>
+          <div>
+            <strong>E-mail</strong>
+            <a [href]="company.emailUrl">{{ company.email }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header
+      [companyName]="company.shortName"
+      [navItems]="navItems"
+      (menuToggle)="toggleMobileMenu()"
+    ></app-header>
+
+    <main class="layout__content">
+      <router-outlet></router-outlet>
+    </main>
+
+    <app-footer
+      [companyName]="company.name"
+      [tagline]="company.description"
+      [navItems]="navItems"
+      [phone]="company.phone"
+      [whatsapp]="company.whatsapp"
+      [email]="company.email"
+      [address]="company.address"
+    ></app-footer>
+
+    <app-floating-whatsapp-button [href]="company.whatsappUrl"></app-floating-whatsapp-button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

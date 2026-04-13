@@ -1,0 +1,20 @@
+<section class="operations-page">
+  <app-section-title
+    eyebrow="Operacoes"
+    title="Camada operacional com leitura rapida, clara e orientada a decisao."
+    description="A area operacional organiza ativos, filas tecnicas e status de manutencao para reduzir ruido e priorizar o que realmente importa."
+  ></app-section-title>
+
+  <div class="operations-grid">
+    @for (asset of assets(); track asset.sector) {
+      <mat-card class="operations-card" appearance="outlined" appScrollReveal appScrollRevealOrigin="up">
+        <div class="operations-card__icon">
+          <mat-icon>monitor_heart</mat-icon>
+        </div>
+        <h3>{{ asset.sector }}</h3>
+        <strong>{{ asset.coverage }}</strong>
+        <p>{{ asset.status }}</p>
+      </mat-card>
+    }
+  </div>
+</section>

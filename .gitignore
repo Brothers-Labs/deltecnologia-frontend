@@ -1,0 +1,63 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Local review artifacts
+/desktop-top-fixed.png
+/desktop-top.png
+/final-desktop-animated.png
+/final-mobile-menu.png
+/header-debug.png
+/header-final-desktop.png
+/header-final-mobile-menu.png
+/header-fixed.png
+/header-redesign-desktop.png
+/header-redesign-mobile.png
+/login-page-desktop.png
+/login-page-mobile.png
+/premium-desktop.png
+/premium-mobile.png
+/puppeteer-page.png
+/refined-desktop.png
+/refined-mobile.png
+/register-page-desktop.png
+/register-page-mobile.png

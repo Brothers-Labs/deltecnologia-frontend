@@ -1,0 +1,19 @@
+<section class="governance-page">
+  <app-section-title
+    eyebrow="Governanca"
+    title="Controles, perfis e estrutura institucional para crescer com seguranca."
+    description="Esta camada reforca a maturidade do portal com uma base pronta para auditoria, aprovacoes e administracao de acessos."
+  ></app-section-title>
+
+  <div class="governance-grid">
+    @for (item of governanceItems(); track item.title) {
+      <mat-card class="governance-card" appearance="outlined" appScrollReveal appScrollRevealOrigin="scale">
+        <div class="governance-card__icon">
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </mat-card>
+    }
+  </div>
+</section>

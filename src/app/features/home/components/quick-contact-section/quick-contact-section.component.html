@@ -1,0 +1,32 @@
+<section class="section-block quick-contact">
+  <div class="page-shell">
+    <app-section-title
+      eyebrow="Contato rapido"
+      title="Fale com uma equipe preparada para entender sua operacao e estruturar a melhor solucao."
+      description="Apresente sua necessidade e receba um contato consultivo com foco em engenharia clinica, tecnologia medica e eficiencia operacional."
+    ></app-section-title>
+
+    <div class="quick-contact__layout">
+      <div class="quick-contact__grid">
+        @for (item of items; track item.title) {
+          <mat-card class="quick-contact__card" appearance="outlined" appScrollReveal appScrollRevealOrigin="scale">
+            <div class="quick-contact__icon">
+              <mat-icon>{{ item.icon }}</mat-icon>
+            </div>
+            <h3>{{ item.title }}</h3>
+            <a [href]="item.href" target="_blank" rel="noreferrer">{{ item.value }}</a>
+            <p>{{ item.description }}</p>
+          </mat-card>
+        }
+      </div>
+
+      <figure class="quick-contact__visual surface-panel" appScrollReveal appScrollRevealOrigin="right">
+        <img [src]="imagePath" alt="Contato institucional e atendimento consultivo da Del Tecnologia.">
+        <figcaption>
+          <strong>Conversa consultiva com leitura da sua operacao</strong>
+          <span>Relacionamento comercial e tecnico pensado para decisao, seguranca e continuidade.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

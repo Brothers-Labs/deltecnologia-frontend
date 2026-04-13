@@ -1,0 +1,62 @@
+<mat-card class="contact-form" appearance="outlined">
+  <div class="contact-form__header">
+    <span class="eyebrow">Fale conosco</span>
+    <h3>Solicite um contato consultivo</h3>
+    <p>
+      Envie sua necessidade para que nossa equipe avalie o melhor caminho técnico para sua instituição.
+    </p>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="contact-form__grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" autocomplete="name">
+        @if (form.controls.name.touched && form.controls.name.invalid) {
+          <mat-error>{{ getErrorMessage('name') }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" autocomplete="email">
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+          <mat-error>{{ getErrorMessage('email') }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Telefone</mat-label>
+        <input matInput formControlName="phone" autocomplete="tel">
+        @if (form.controls.phone.touched && form.controls.phone.invalid) {
+          <mat-error>{{ getErrorMessage('phone') }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Empresa</mat-label>
+        <input matInput formControlName="company" autocomplete="organization">
+        @if (form.controls.company.touched && form.controls.company.invalid) {
+          <mat-error>{{ getErrorMessage('company') }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="contact-form__message">
+      <mat-label>Mensagem</mat-label>
+      <textarea matInput rows="5" formControlName="message"></textarea>
+      @if (form.controls.message.touched && form.controls.message.invalid) {
+        <mat-error>{{ getErrorMessage('message') }}</mat-error>
+      }
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="submitting()">
+      @if (submitting()) {
+        <mat-spinner diameter="20"></mat-spinner>
+      } @else {
+        <mat-icon>send</mat-icon>
+      }
+      Enviar mensagem
+    </button>
+  </form>
+</mat-card>

@@ -1,0 +1,15 @@
+<section class="section-block benefits">
+  <div class="page-shell">
+    <app-section-title
+      eyebrow="Benefícios"
+      [title]="title"
+      [description]="description"
+    ></app-section-title>
+
+    <div class="grid-auto-fit">
+      @for (item of items; track item.title) {
+        <app-info-card [item]="item"></app-info-card>
+      }
+    </div>
+  </div>
+</section>

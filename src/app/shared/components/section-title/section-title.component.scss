@@ -1,0 +1,31 @@
+.section-title {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.section-title h2 {
+  margin: 0;
+  max-width: 16ch;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 2.9vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.section-title p {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.section-title--center {
+  text-align: center;
+  justify-items: center;
+}
+
+.section-title--center h2,
+.section-title--center p {
+  max-width: 26ch;
+}

@@ -1,0 +1,42 @@
+.governance-page {
+  display: grid;
+  gap: 1rem;
+}
+
+.governance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.governance-card {
+  padding: 1.5rem;
+  border-color: rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.governance-card__icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  border-radius: 18px;
+  color: var(--color-accent);
+  background: rgba(96, 165, 250, 0.14);
+}
+
+.governance-card h3 {
+  margin: 0 0 0.7rem;
+}
+
+.governance-card p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+@media (max-width: 991px) {
+  .governance-grid {
+    grid-template-columns: 1fr;
+  }
+}

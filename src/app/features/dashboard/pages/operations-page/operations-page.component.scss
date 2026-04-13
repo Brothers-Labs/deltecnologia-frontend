@@ -1,0 +1,50 @@
+.operations-page {
+  display: grid;
+  gap: 1rem;
+}
+
+.operations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.operations-card {
+  padding: 1.5rem;
+  border-color: rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.operations-card__icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  border-radius: 18px;
+  color: var(--color-accent);
+  background: rgba(96, 165, 250, 0.14);
+}
+
+.operations-card h3,
+.operations-card strong,
+.operations-card p {
+  margin: 0;
+}
+
+.operations-card strong {
+  display: block;
+  margin: 0.65rem 0 0.5rem;
+  color: var(--color-title);
+  font-size: 1.3rem;
+}
+
+.operations-card p {
+  line-height: 1.75;
+}
+
+@media (max-width: 991px) {
+  .operations-grid {
+    grid-template-columns: 1fr;
+  }
+}

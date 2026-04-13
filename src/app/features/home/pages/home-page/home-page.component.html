@@ -1,0 +1,81 @@
+<app-hero-banner [content]="heroContent"></app-hero-banner>
+
+<section class="home-executive section-block--tight">
+  <div class="page-shell home-executive__grid">
+    <article class="home-executive__panel surface-panel" appScrollReveal appScrollRevealOrigin="left">
+      <span class="eyebrow">Posicionamento</span>
+      <h2>Engenharia clínica tratada como ativo estratégico da instituição.</h2>
+      <p>
+        Mais do que manutenção, a Del Tecnologia organiza o parque eletromédico com visão de
+        continuidade operacional, governança técnica e apoio à tomada de decisão.
+      </p>
+    </article>
+
+    <article class="home-executive__stats" appScrollReveal [appScrollRevealDelay]="120" appScrollRevealOrigin="right">
+      <div appScrollReveal [appScrollRevealDelay]="160">
+        <strong>Performance</strong>
+        <span>Processos desenhados para sustentar disponibilidade e previsibilidade.</span>
+      </div>
+      <div appScrollReveal [appScrollRevealDelay]="240">
+        <strong>Segurança</strong>
+        <span>Critérios técnicos claros para operações críticas e ambientes assistenciais.</span>
+      </div>
+      <div appScrollReveal [appScrollRevealDelay]="320">
+        <strong>Escalabilidade</strong>
+        <span>Base preparada para crescimento, integração e evolução tecnológica.</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<app-about-section [pillars]="aboutPillars"></app-about-section>
+
+<app-benefits-section [items]="benefits"></app-benefits-section>
+
+<app-services-section [services]="services"></app-services-section>
+
+<section class="home-differentials section-block">
+  <div class="page-shell" appScrollReveal>
+    <app-section-title
+      eyebrow="Diferenciais"
+      title="Estrutura técnica, visão estratégica e compromisso com resultados confiáveis."
+      description="Nossa proposta combina especialização, tecnologia aplicada e atendimento consultivo para apoiar instituições de saúde que buscam maturidade operacional."
+      align="center"
+    ></app-section-title>
+
+    <div class="home-differentials__grid">
+      @for (item of differentials; track item.title) {
+        <app-differential-card [item]="item"></app-differential-card>
+      }
+    </div>
+  </div>
+</section>
+
+<app-coverage-section [items]="coverage"></app-coverage-section>
+
+<section class="home-signature section-block--tight">
+  <div class="page-shell home-signature__content" appScrollReveal appScrollRevealOrigin="scale">
+    <span class="eyebrow">Assinatura Del</span>
+    <h2>Clareza técnica, estética corporativa e confiança em cada ponto de contato.</h2>
+    <p>
+      Um site institucional de alta performance também comunica método, maturidade e excelência.
+      Por isso, a experiência visual acompanha o posicionamento consultivo da empresa.
+    </p>
+  </div>
+</section>
+
+<app-quick-contact-section [items]="quickContactItems"></app-quick-contact-section>
+
+<section class="section-block">
+  <div class="page-shell home-contact">
+    <div class="home-contact__intro" appScrollReveal appScrollRevealOrigin="left">
+      <app-section-title
+        eyebrow="Captação de clientes"
+        title="Vamos construir uma operação mais segura, previsível e eficiente para sua instituição."
+        description="Se sua empresa busca uma parceira com posicionamento técnico sólido e comunicação corporativa clara, a Del Tecnologia está pronta para apoiar seu próximo ciclo de evolução."
+      ></app-section-title>
+    </div>
+
+    <app-contact-form></app-contact-form>
+  </div>
+</section>

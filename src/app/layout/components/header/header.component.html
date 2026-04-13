@@ -1,0 +1,52 @@
+<header class="header">
+  <mat-toolbar class="header__toolbar">
+    <a class="brand" routerLink="/" aria-label="Ir para a pagina inicial da Del Tecnologia">
+      <span class="brand__mark">
+        <img src="assets/images/del-02.png" alt="Logo da Del Tecnologia">
+      </span>
+      <span class="brand__text">
+        <small class="brand__eyebrow">Tecnologia Medica</small>
+        <span class="brand__title-row">
+          <strong>{{ companyName }}</strong>
+        </span>
+      </span>
+    </a>
+
+    <nav class="header__nav" aria-label="Navegacao principal">
+      @for (item of navItems; track item.route) {
+        <a
+          class="header__link"
+          [routerLink]="item.route"
+          routerLinkActive="header__link--active"
+          [routerLinkActiveOptions]="{ exact: item.exact ?? item.route === '/' }"
+        >
+          @if (item.icon) {
+            <mat-icon>{{ item.icon }}</mat-icon>
+          }
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+
+    <div class="header__actions">
+      <a mat-stroked-button class="header__login" [routerLink]="loginRoute">
+        <mat-icon>login</mat-icon>
+        Entrar
+      </a>
+
+      <a mat-flat-button class="header__cta" color="primary" [routerLink]="contactRoute">
+        Falar com a Del
+      </a>
+    </div>
+
+    <button
+      mat-icon-button
+      class="header__menu-button"
+      type="button"
+      (click)="menuToggle.emit()"
+      aria-label="Abrir menu de navegacao"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>

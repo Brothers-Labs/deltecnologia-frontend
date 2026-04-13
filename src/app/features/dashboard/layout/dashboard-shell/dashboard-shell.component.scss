@@ -1,0 +1,205 @@
+.portal-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.12), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.14), transparent 24%),
+    linear-gradient(180deg, #06101d, #07111f 45%, #040913 100%);
+}
+
+.portal-shell__container,
+.portal-shell__content {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.portal-shell__sidenav {
+  width: 340px;
+  padding: 1.1rem;
+  color: var(--color-text);
+  background: rgba(6, 16, 29, 0.94);
+  border-right: 1px solid rgba(148, 163, 184, 0.12);
+  backdrop-filter: blur(24px);
+}
+
+.portal-shell__brand,
+.portal-shell__support {
+  padding: 1rem;
+  border-radius: 24px;
+  border: 1px solid rgba(96, 165, 250, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.portal-shell__brand {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.portal-shell__brand-mark,
+.portal-shell__desktop-mark {
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #7dd3fc, #60a5fa 55%, #22d3ee);
+  color: #06101f;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.portal-shell__brand-mark {
+  width: 62px;
+  height: 62px;
+  font-size: 1.35rem;
+}
+
+.portal-shell__brand strong,
+.portal-shell__desktop-brand strong,
+.portal-shell__identity strong {
+  color: var(--color-title);
+}
+
+.portal-shell__brand p {
+  margin: 0.35rem 0 0;
+  line-height: 1.7;
+}
+
+.portal-shell__nav {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1rem 0;
+}
+
+.portal-shell__nav-item {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  color: inherit;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.portal-shell__nav-item mat-icon {
+  color: var(--color-accent);
+}
+
+.portal-shell__nav-item strong,
+.portal-shell__nav-item span {
+  display: block;
+}
+
+.portal-shell__nav-item strong {
+  margin-bottom: 0.3rem;
+}
+
+.portal-shell__nav-item span {
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.portal-shell__nav-item:hover,
+.portal-shell__nav-item--active {
+  transform: translateY(-1px);
+  border-color: rgba(96, 165, 250, 0.26);
+  background: linear-gradient(180deg, rgba(96, 165, 250, 0.12), rgba(255, 255, 255, 0.04));
+}
+
+.portal-shell__support {
+  margin-top: 1rem;
+}
+
+.portal-shell__support h3 {
+  margin: 0.8rem 0 0.65rem;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.portal-shell__support p {
+  margin: 0 0 1rem;
+  line-height: 1.75;
+}
+
+.portal-shell__topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.4rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(4, 9, 19, 0.72);
+  backdrop-filter: blur(18px);
+}
+
+.portal-shell__menu-button {
+  display: none;
+}
+
+.portal-shell__desktop-brand {
+  display: inline-grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.portal-shell__desktop-mark {
+  width: 48px;
+  height: 48px;
+  font-size: 1rem;
+}
+
+.portal-shell__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.portal-shell__identity {
+  display: grid;
+  justify-items: end;
+  gap: 0.1rem;
+}
+
+.portal-shell__identity span {
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+}
+
+.portal-shell__main {
+  padding: 1.35rem;
+}
+
+@media (max-width: 1100px) {
+  .portal-shell__menu-button {
+    display: inline-flex;
+  }
+
+  .portal-shell__identity {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .portal-shell__topbar {
+    grid-template-columns: auto 1fr auto;
+    padding-inline: 1rem;
+  }
+
+  .portal-shell__desktop-brand {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .portal-shell__desktop-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .portal-shell__main {
+    padding: 1rem;
+  }
+}

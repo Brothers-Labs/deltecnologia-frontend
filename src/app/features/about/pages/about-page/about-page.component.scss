@@ -1,0 +1,14 @@
+.about-page__hero {
+  padding: 2rem;
+}
+
+.about-page__text {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-page__text p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.85;
+}

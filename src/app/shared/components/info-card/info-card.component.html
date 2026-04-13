@@ -1,0 +1,7 @@
+<mat-card class="info-card" appearance="outlined">
+  <div class="info-card__icon" [style.--accent]="item.accent ?? 'var(--color-primary)'">
+    <mat-icon>{{ item.icon }}</mat-icon>
+  </div>
+  <h3>{{ item.title }}</h3>
+  <p>{{ item.description }}</p>
+</mat-card>

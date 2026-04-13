@@ -1,0 +1,302 @@
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  overflow: hidden;
+}
+
+.login-page__scene {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.login-page__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(96, 165, 250, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.6), transparent 88%);
+}
+
+.login-page__beam {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+}
+
+.login-page__beam--one {
+  top: 12%;
+  left: -4%;
+  width: 320px;
+  height: 320px;
+  background: rgba(34, 211, 238, 0.18);
+}
+
+.login-page__beam--two {
+  right: -5%;
+  bottom: 10%;
+  width: 360px;
+  height: 360px;
+  background: rgba(37, 99, 235, 0.16);
+}
+
+.login-page__shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 1.8rem;
+  align-items: stretch;
+}
+
+.login-page__brand,
+.login-card {
+  padding: 2rem;
+}
+
+.login-page__brand {
+  display: grid;
+  gap: 2rem;
+}
+
+.login-page__brand-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.login-page__brand-mark {
+  width: 66px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #7dd3fc, #60a5fa 55%, #22d3ee);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  box-shadow: 0 18px 30px rgba(34, 211, 238, 0.18);
+}
+
+.login-page__brand-copy h1 {
+  margin: 0.8rem 0 0.5rem;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.login-page__brand-copy p {
+  max-width: 52ch;
+  line-height: 1.8;
+}
+
+.login-page__content h2 {
+  margin: 0 0 1rem;
+  max-width: 16ch;
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+}
+
+.login-page__content > p {
+  max-width: 62ch;
+  line-height: 1.9;
+}
+
+.login-page__highlights {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.login-page__highlight {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1rem;
+  padding: 1.15rem;
+  border-radius: 22px;
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+}
+
+.login-page__highlight mat-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  color: var(--color-accent);
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.16);
+}
+
+.login-page__highlight strong,
+.login-page__highlight span {
+  display: block;
+}
+
+.login-page__highlight strong {
+  margin-bottom: 0.4rem;
+  color: var(--color-title);
+  font-size: 1rem;
+}
+
+.login-page__highlight span {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.login-page__trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.login-page__trust-row span {
+  padding: 0.78rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-title);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.login-card {
+  display: grid;
+  align-content: center;
+  gap: 1.5rem;
+}
+
+.login-card__header h2 {
+  margin: 0.85rem 0 0.7rem;
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  letter-spacing: -0.04em;
+}
+
+.login-card__header p {
+  max-width: 46ch;
+  line-height: 1.8;
+}
+
+.login-card__status {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.12), rgba(96, 165, 250, 0.06));
+  color: var(--color-title);
+}
+
+.login-card__status mat-icon {
+  color: var(--color-accent);
+}
+
+.login-card__status span {
+  line-height: 1.7;
+}
+
+.login-card__form {
+  display: grid;
+  gap: 1rem;
+}
+
+.login-card__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-card__inline-links,
+.login-card__footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.login-card__link,
+.login-card__footer a {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.login-card__submit {
+  min-height: 50px;
+  color: #06101f;
+  background: linear-gradient(135deg, #7dd3fc, #60a5fa 55%, #22d3ee);
+  box-shadow: 0 16px 28px rgba(34, 211, 238, 0.16);
+}
+
+.login-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+:host ::ng-deep .mat-mdc-form-field {
+  --mdc-outlined-text-field-container-shape: 18px;
+  --mdc-outlined-text-field-outline-color: rgba(148, 163, 184, 0.28);
+  --mdc-outlined-text-field-hover-outline-color: rgba(96, 165, 250, 0.38);
+  --mdc-outlined-text-field-focus-outline-color: rgba(34, 211, 238, 0.78);
+  --mdc-outlined-text-field-label-text-color: var(--color-text-muted);
+  --mdc-outlined-text-field-input-text-color: var(--color-title);
+}
+
+@media (max-width: 991px) {
+  .login-page__shell {
+    grid-template-columns: 1fr;
+  }
+
+  .login-page__brand,
+  .login-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .login-page {
+    padding: 1rem 0 2rem;
+  }
+
+  .login-page__brand-link {
+    align-items: center;
+  }
+
+  .login-page__brand-mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    font-size: 1.2rem;
+  }
+
+  .login-card__row,
+  .login-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .login-card__inline-links,
+  .login-card__footer-links {
+    justify-content: flex-start;
+  }
+
+  .login-card__submit {
+    width: 100%;
+  }
+}
