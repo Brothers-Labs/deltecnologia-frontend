@@ -12,7 +12,7 @@ import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reve
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoverageSectionComponent {
-  protected readonly imagePath = 'assets/images/del-05.png';
+  protected readonly imagePath = 'assets/images/del-07.png';
 
   @Input({ required: true }) items: readonly InfoCardItem[] = [];
 }

@@ -30,7 +30,7 @@ export const HERO_CONTENT: HeroContent = {
       label: 'Segurança e conformidade'
     }
   ],
-  imagePath: 'assets/images/del-05.png',
+  imagePath: 'assets/images/del-07.png',
   imageAlt: 'Equipe e estrutura tecnica da Del Tecnologia em ambiente corporativo de engenharia clinica.'
 };
 
