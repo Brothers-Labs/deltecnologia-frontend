@@ -33,7 +33,7 @@
 
     <section class="dashboard-metrics">
       @for (metric of metrics(); track metric.label) {
-        <mat-card class="metric-card" appearance="outlined" appScrollReveal appScrollRevealOrigin="scale">
+        <mat-card class="metric-card" appearance="outlined" appPremiumCard appScrollReveal appScrollRevealOrigin="scale">
           <div class="metric-card__icon">
             <mat-icon>{{ metric.icon }}</mat-icon>
           </div>
@@ -53,7 +53,7 @@
 
       <div class="dashboard-shortcuts">
         @for (shortcut of shortcuts(); track shortcut.title) {
-          <a class="shortcut-card surface-panel" [routerLink]="shortcut.route" appScrollReveal appScrollRevealOrigin="up">
+          <a class="shortcut-card surface-panel" [routerLink]="shortcut.route" appPremiumCard appScrollReveal appScrollRevealOrigin="up">
             <div class="shortcut-card__icon">
               <mat-icon>{{ shortcut.icon }}</mat-icon>
             </div>

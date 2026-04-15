@@ -10,6 +10,7 @@ import { AuthService } from '../../../../core/services/auth.service';
 import { PortalDataService } from '../../../../core/services/portal-data.service';
 import { SeoService } from '../../../../core/services/seo.service';
 import { SectionTitleComponent } from '../../../../shared/components/section-title/section-title.component';
+import { PremiumCardDirective } from '../../../../shared/directives/premium-card.directive';
 import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reveal.directive';
 
 @Component({
@@ -20,6 +21,7 @@ import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reve
     MatCardModule,
     MatIconModule,
     RouterLink,
+    PremiumCardDirective,
     ScrollRevealDirective,
     SectionTitleComponent
   ],

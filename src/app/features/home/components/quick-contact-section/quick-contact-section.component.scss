@@ -19,12 +19,13 @@
   border-color: var(--color-border);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
   box-shadow: var(--shadow-card);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
 .quick-contact__card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 24px 44px rgba(2, 6, 23, 0.34);
+  border-color: rgba(193, 18, 31, 0.24);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(193, 18, 31, 0.04));
 }
 
 .quick-contact__icon {

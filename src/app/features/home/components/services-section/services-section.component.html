@@ -30,7 +30,7 @@
 
     <div class="services__grid">
       @for (service of services; track service.slug) {
-        <mat-card class="services__card" appearance="outlined" appScrollReveal appScrollRevealOrigin="scale">
+        <mat-card class="services__card" appearance="outlined" appPremiumCard appScrollReveal appScrollRevealOrigin="scale">
           <div class="services__icon">
             <mat-icon>{{ service.icon }}</mat-icon>
           </div>

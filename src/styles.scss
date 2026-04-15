@@ -228,6 +228,186 @@ textarea {
   pointer-events: none;
 }
 
+[data-premium-card] {
+  --card-rotate-x: 0deg;
+  --card-rotate-y: 0deg;
+  --card-pointer-x: 50%;
+  --card-pointer-y: 50%;
+  --card-lift: -12px;
+}
+
+:is(
+  [data-premium-card] .info-card,
+  [data-premium-card] .differential-card,
+  [data-premium-card].services__card,
+  [data-premium-card].quick-contact__card,
+  [data-premium-card].equipment-card,
+  [data-premium-card].metric-card,
+  [data-premium-card].shortcut-card,
+  [data-premium-card].operations-card,
+  [data-premium-card].governance-card,
+  [data-premium-card] .contact-form,
+  [data-premium-card].login-card,
+  [data-premium-card].register-card,
+  [data-premium-card].forgot-card
+) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  transition:
+    transform 300ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 300ms ease,
+    border-color 280ms ease,
+    background 280ms ease,
+    filter 280ms ease;
+  animation: cardFloat var(--card-float-duration, 7s) ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+:is(
+  [data-premium-card] .info-card,
+  [data-premium-card] .differential-card,
+  [data-premium-card].services__card,
+  [data-premium-card].quick-contact__card,
+  [data-premium-card].equipment-card,
+  [data-premium-card].metric-card,
+  [data-premium-card].shortcut-card,
+  [data-premium-card].operations-card,
+  [data-premium-card].governance-card,
+  [data-premium-card] .contact-form,
+  [data-premium-card].login-card,
+  [data-premium-card].register-card,
+  [data-premium-card].forgot-card
+)::after {
+  content: '';
+  position: absolute;
+  inset: -35%;
+  background:
+    radial-gradient(
+      circle at var(--card-pointer-x) var(--card-pointer-y),
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.03) 12%,
+      transparent 28%
+    ),
+    linear-gradient(
+      115deg,
+      transparent 18%,
+      rgba(255, 255, 255, 0.03) 34%,
+      rgba(255, 255, 255, 0.18) 48%,
+      rgba(193, 18, 31, 0.14) 56%,
+      transparent 72%
+    );
+  transform: translate3d(-42%, -18%, 0) rotate(12deg);
+  opacity: 0.72;
+  z-index: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: cardShimmer var(--card-shimmer-duration, 8.4s) linear infinite;
+}
+
+:is(
+  [data-premium-card] .info-card,
+  [data-premium-card] .differential-card,
+  [data-premium-card].services__card,
+  [data-premium-card].quick-contact__card,
+  [data-premium-card].equipment-card,
+  [data-premium-card].metric-card,
+  [data-premium-card].shortcut-card,
+  [data-premium-card].operations-card,
+  [data-premium-card].governance-card,
+  [data-premium-card] .contact-form,
+  [data-premium-card].login-card,
+  [data-premium-card].register-card,
+  [data-premium-card].forgot-card
+)::before {
+  z-index: 0;
+}
+
+:is(
+  [data-premium-card] .info-card > *,
+  [data-premium-card] .differential-card > *,
+  [data-premium-card].services__card > *,
+  [data-premium-card].quick-contact__card > *,
+  [data-premium-card].equipment-card > *,
+  [data-premium-card].metric-card > *,
+  [data-premium-card].shortcut-card > *,
+  [data-premium-card].operations-card > *,
+  [data-premium-card].governance-card > *,
+  [data-premium-card] .contact-form > *,
+  [data-premium-card].login-card > *,
+  [data-premium-card].register-card > *,
+  [data-premium-card].forgot-card > *
+) {
+  position: relative;
+  z-index: 1;
+}
+
+[data-premium-card]:is(:hover, :focus-within) .info-card,
+[data-premium-card]:is(:hover, :focus-within) .differential-card,
+[data-premium-card].services__card:is(:hover, :focus-within),
+[data-premium-card].quick-contact__card:is(:hover, :focus-within),
+[data-premium-card].equipment-card:is(:hover, :focus-within),
+[data-premium-card].metric-card:is(:hover, :focus-within),
+[data-premium-card].shortcut-card:is(:hover, :focus-within),
+[data-premium-card].operations-card:is(:hover, :focus-within),
+[data-premium-card].governance-card:is(:hover, :focus-within),
+[data-premium-card]:is(:hover, :focus-within) .contact-form,
+[data-premium-card].login-card:is(:hover, :focus-within),
+[data-premium-card].register-card:is(:hover, :focus-within),
+[data-premium-card].forgot-card:is(:hover, :focus-within) {
+  transform:
+    perspective(1200px)
+    translate3d(0, var(--card-lift), 0)
+    rotateX(var(--card-rotate-x))
+    rotateY(var(--card-rotate-y))
+    scale(1.02);
+  box-shadow:
+    0 30px 72px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(193, 18, 31, var(--card-glow-opacity, 0.18));
+  filter: saturate(1.08);
+}
+
+[data-premium-card]:is(:hover, :focus-within) .info-card::after,
+[data-premium-card]:is(:hover, :focus-within) .differential-card::after,
+[data-premium-card].services__card:is(:hover, :focus-within)::after,
+[data-premium-card].quick-contact__card:is(:hover, :focus-within)::after,
+[data-premium-card].equipment-card:is(:hover, :focus-within)::after,
+[data-premium-card].metric-card:is(:hover, :focus-within)::after,
+[data-premium-card].shortcut-card:is(:hover, :focus-within)::after,
+[data-premium-card].operations-card:is(:hover, :focus-within)::after,
+[data-premium-card].governance-card:is(:hover, :focus-within)::after,
+[data-premium-card]:is(:hover, :focus-within) .contact-form::after,
+[data-premium-card].login-card:is(:hover, :focus-within)::after,
+[data-premium-card].register-card:is(:hover, :focus-within)::after,
+[data-premium-card].forgot-card:is(:hover, :focus-within)::after {
+  opacity: 0.96;
+}
+
+[data-premium-card][data-premium-variant='soft'] {
+  --card-lift: -8px;
+}
+
+[data-premium-card][data-premium-variant='form'] {
+  --card-lift: -6px;
+  --card-tilt-strength: 5;
+}
+
+[data-premium-card][data-premium-index='2'] {
+  --card-lift: -10px;
+}
+
+[data-premium-card][data-premium-index='3'] {
+  --card-lift: -14px;
+}
+
+[data-premium-card][data-premium-index='4'] {
+  --card-lift: -11px;
+}
+
 @keyframes revealUp {
   from {
     opacity: 0;
@@ -237,6 +417,27 @@ textarea {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes cardShimmer {
+  0% {
+    transform: translate3d(-46%, -20%, 0) rotate(12deg);
+  }
+
+  100% {
+    transform: translate3d(46%, 20%, 0) rotate(12deg);
   }
 }
 
@@ -257,7 +458,37 @@ textarea {
 
   .reveal,
   .reveal-up,
-  .hero__visual img {
+  .hero__visual img,
+  :is(
+    [data-premium-card] .info-card,
+    [data-premium-card] .differential-card,
+    [data-premium-card].services__card,
+    [data-premium-card].quick-contact__card,
+    [data-premium-card].equipment-card,
+    [data-premium-card].metric-card,
+    [data-premium-card].shortcut-card,
+    [data-premium-card].operations-card,
+    [data-premium-card].governance-card,
+    [data-premium-card] .contact-form,
+    [data-premium-card].login-card,
+    [data-premium-card].register-card,
+    [data-premium-card].forgot-card
+  ),
+  :is(
+    [data-premium-card] .info-card,
+    [data-premium-card] .differential-card,
+    [data-premium-card].services__card,
+    [data-premium-card].quick-contact__card,
+    [data-premium-card].equipment-card,
+    [data-premium-card].metric-card,
+    [data-premium-card].shortcut-card,
+    [data-premium-card].operations-card,
+    [data-premium-card].governance-card,
+    [data-premium-card] .contact-form,
+    [data-premium-card].login-card,
+    [data-premium-card].register-card,
+    [data-premium-card].forgot-card
+  )::after {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;

@@ -4,11 +4,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ContactChannelItem } from '../../../../core/models/info-card.model';
 import { SectionTitleComponent } from '../../../../shared/components/section-title/section-title.component';
+import { PremiumCardDirective } from '../../../../shared/directives/premium-card.directive';
 import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-quick-contact-section',
-  imports: [NgOptimizedImage, MatCardModule, MatIconModule, SectionTitleComponent, ScrollRevealDirective],
+  imports: [NgOptimizedImage, MatCardModule, MatIconModule, SectionTitleComponent, ScrollRevealDirective, PremiumCardDirective],
   templateUrl: './quick-contact-section.component.html',
   styleUrl: './quick-contact-section.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

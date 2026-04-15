@@ -23,7 +23,7 @@
 
     <div class="equipment-highlights__grid">
       @for (item of items; track item.title) {
-        <mat-card class="equipment-card" appearance="outlined" appScrollReveal appScrollRevealOrigin="scale">
+        <mat-card class="equipment-card" appearance="outlined" appPremiumCard appScrollReveal appScrollRevealOrigin="scale">
           <div class="equipment-card__topline">
             <span class="equipment-card__group">{{ item.group }}</span>
             <div class="equipment-card__icon" [style.--accent]="item.accent ?? 'var(--color-primary)'">

@@ -13,6 +13,7 @@ import { COMPANY_INFO } from '../../../../core/constants/company.constants';
 import { AppRoute } from '../../../../core/enums/app-route.enum';
 import { AuthService } from '../../../../core/services/auth.service';
 import { SeoService } from '../../../../core/services/seo.service';
+import { PremiumCardDirective } from '../../../../shared/directives/premium-card.directive';
 import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reveal.directive';
 
 @Component({
@@ -27,6 +28,7 @@ import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reve
     MatIconModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
+    PremiumCardDirective,
     ScrollRevealDirective
   ],
   templateUrl: './login-page.component.html',

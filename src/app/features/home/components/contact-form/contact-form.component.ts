@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ContactService } from '../../../../core/services/contact.service';
+import { PremiumCardDirective } from '../../../../shared/directives/premium-card.directive';
 import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reveal.directive';
 
 type ContactFormGroup = FormGroup<{
@@ -34,7 +35,7 @@ type ContactFormGroup = FormGroup<{
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  hostDirectives: [ScrollRevealDirective]
+  hostDirectives: [ScrollRevealDirective, PremiumCardDirective]
 })
 export class ContactFormComponent {
   private readonly formBuilder = inject(NonNullableFormBuilder);

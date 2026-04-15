@@ -5,11 +5,12 @@ import { AuthRole } from '../../../../core/enums/auth-role.enum';
 import { AuthService } from '../../../../core/services/auth.service';
 import { SeoService } from '../../../../core/services/seo.service';
 import { SectionTitleComponent } from '../../../../shared/components/section-title/section-title.component';
+import { PremiumCardDirective } from '../../../../shared/directives/premium-card.directive';
 import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-operations-page',
-  imports: [MatCardModule, MatIconModule, SectionTitleComponent, ScrollRevealDirective],
+  imports: [MatCardModule, MatIconModule, SectionTitleComponent, ScrollRevealDirective, PremiumCardDirective],
   templateUrl: './operations-page.component.html',
   styleUrl: './operations-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

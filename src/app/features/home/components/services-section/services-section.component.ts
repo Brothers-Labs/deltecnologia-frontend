@@ -6,11 +6,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { ServiceItem } from '../../../../core/models/service-item.model';
 import { SectionTitleComponent } from '../../../../shared/components/section-title/section-title.component';
+import { PremiumCardDirective } from '../../../../shared/directives/premium-card.directive';
 import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-services-section',
-  imports: [NgOptimizedImage, MatButtonModule, MatCardModule, MatIconModule, RouterLink, SectionTitleComponent, ScrollRevealDirective],
+  imports: [
+    NgOptimizedImage,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    RouterLink,
+    SectionTitleComponent,
+    ScrollRevealDirective,
+    PremiumCardDirective
+  ],
   templateUrl: './services-section.component.html',
   styleUrl: './services-section.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
