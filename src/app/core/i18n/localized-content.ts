@@ -107,7 +107,7 @@ const enSiteContent: LocalizedSiteContent = {
   ],
   quickContact: [
     { icon: 'call', title: 'Business phone', value: '(47) 2033-7935', href: 'tel:+554720337935', description: 'Institutional support for technical and commercial demands.' },
-    { icon: 'chat', title: 'WhatsApp', value: '(47) 99102-7428', href: 'https://wa.me/5547991027428', description: 'Fast channel for inquiries, introductions, and alignment.' },
+    { icon: 'chat', title: 'WhatsApp', value: '+55 47 98805-4390', href: 'https://wa.me/5547988054390', description: 'Fast channel for inquiries, introductions, and alignment.' },
     { icon: 'mail', title: 'Email', value: 'contato@deltecnologia.com', href: 'mailto:contato@deltecnologia.com', description: 'Direct contact for proposals, technical questions, and partnerships.' },
     { icon: 'location_on', title: 'Address', value: 'Rua José Pereira Liberato, 987, Room 111 and 112 - Itajaí/SC, Brazil', href: 'https://maps.google.com/?q=Rua%20Jos%C3%A9%20Pereira%20Liberato,%20987,%20Itaja%C3%AD,%20SC', description: 'Strategic base in Itajaí/SC to support clients with proximity and organization.' }
   ],
