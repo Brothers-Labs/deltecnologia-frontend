@@ -2,37 +2,29 @@
   <div class="page-shell about">
     <div class="about__intro">
       <app-section-title
-        eyebrow="Quem somos"
-        title="Del Tecnologia: engenharia clínica com credibilidade, organização e visão de futuro."
-        description="A Del Tecnologia atua como parceira estratégica de instituições de saúde que desejam elevar o nível de controle técnico, confiabilidade operacional e maturidade na gestão dos ativos eletromédicos. Nosso posicionamento une competência técnica, processos estruturados e uma visão contemporânea da tecnologia médica."
+        [eyebrow]="i18n.t('pages.aboutSection.eyebrow')"
+        [title]="i18n.t('pages.aboutSection.title')"
+        [description]="i18n.t('pages.aboutSection.description')"
       ></app-section-title>
 
       <div class="about__content surface-panel">
-        <p>
-          Nossa atuação é orientada por resultados consistentes: maior disponibilidade de equipamentos,
-          redução de riscos operacionais, melhor aproveitamento dos investimentos e suporte técnico à
-          eficiência das equipes assistenciais.
-        </p>
-        <p>
-          Com foco em inovação, segurança e eficiência operacional, desenvolvemos soluções que apoiam a
-          governança do parque tecnológico e fortalecem a confiança das instituições em cada etapa da
-          jornada técnica.
-        </p>
+        <p>{{ i18n.t('pages.aboutSection.paragraphs.0') }}</p>
+        <p>{{ i18n.t('pages.aboutSection.paragraphs.1') }}</p>
       </div>
     </div>
 
     <figure class="about__visual surface-panel" appScrollReveal appScrollRevealOrigin="right">
       <img
         [ngSrc]="imagePath"
-        alt="Ambiente técnico e institucional da Del Tecnologia com foco em engenharia clínica."
+        [alt]="i18n.t('pages.aboutSection.figureAlt')"
         width="1536"
         height="1024"
         sizes="(max-width: 1024px) 92vw, 40vw"
         loading="lazy"
       >
       <figcaption>
-        <strong>Atuação técnica com presença executiva</strong>
-        <span>Processos organizados, leitura operacional e proximidade com a realidade hospitalar.</span>
+        <strong>{{ i18n.t('pages.aboutSection.figureTitle') }}</strong>
+        <span>{{ i18n.t('pages.aboutSection.figureDescription') }}</span>
       </figcaption>
     </figure>
 

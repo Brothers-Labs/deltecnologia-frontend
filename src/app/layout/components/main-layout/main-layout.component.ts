@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, DestroyRef, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, computed, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -9,7 +9,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { COMPANY_INFO } from '../../../core/constants/company.constants';
-import { NAVIGATION_ITEMS } from '../../../core/constants/navigation.constants';
+import { getLocalizedCompanyContent, getPublicNavigation } from '../../../core/i18n/localized-content';
+import { I18nService } from '../../../core/services/i18n.service';
 import { FloatingWhatsappButtonComponent } from '../../../features/home/components/floating-whatsapp-button/floating-whatsapp-button.component';
 import { PremiumCardDirective } from '../../../shared/directives/premium-card.directive';
 import { FooterComponent } from '../footer/footer.component';
@@ -39,9 +40,11 @@ import { HeaderComponent } from '../header/header.component';
 export class MainLayoutComponent {
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
+  protected readonly i18n = inject(I18nService);
 
   protected readonly company = COMPANY_INFO;
-  protected readonly navItems = NAVIGATION_ITEMS;
+  protected readonly navItems = computed(() => getPublicNavigation(this.i18n.locale()));
+  protected readonly companyCopy = computed(() => getLocalizedCompanyContent(this.i18n.locale()));
   protected readonly techParticles = [
     { id: 1, top: 12, left: 8, size: 6, delay: 0, duration: 12 },
     { id: 2, top: 24, left: 78, size: 5, delay: 1200, duration: 16 },

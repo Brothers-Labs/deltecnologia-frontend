@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { InfoCardItem } from '../../../../core/models/info-card.model';
+import { I18nService } from '../../../../core/services/i18n.service';
 import { InfoCardComponent } from '../../../../shared/components/info-card/info-card.component';
 import { SectionTitleComponent } from '../../../../shared/components/section-title/section-title.component';
 
@@ -11,8 +12,8 @@ import { SectionTitleComponent } from '../../../../shared/components/section-tit
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BenefitsSectionComponent {
+  protected readonly i18n = inject(I18nService);
   @Input({ required: true }) items: readonly InfoCardItem[] = [];
-  @Input() title = 'Benefícios estratégicos para sua operação';
-  @Input() description =
-    'Uma abordagem técnica bem estruturada impacta disponibilidade, segurança, previsibilidade e governança dos ativos eletromédicos.';
+  @Input() title = '';
+  @Input() description = '';
 }

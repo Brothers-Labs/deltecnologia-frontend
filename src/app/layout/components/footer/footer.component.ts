@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { RouterLink } from '@angular/router';
 import { NavigationItem } from '../../../core/models/navigation-item.model';
+import { I18nService } from '../../../core/services/i18n.service';
 import { PremiumCardDirective } from '../../../shared/directives/premium-card.directive';
 
 @Component({
@@ -13,6 +14,7 @@ import { PremiumCardDirective } from '../../../shared/directives/premium-card.di
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
+  protected readonly i18n = inject(I18nService);
   @Input({ required: true }) companyName = '';
   @Input({ required: true }) tagline = '';
   @Input({ required: true }) navItems: readonly NavigationItem[] = [];

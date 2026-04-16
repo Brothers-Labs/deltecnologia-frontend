@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { I18nService } from '../../../../core/services/i18n.service';
 import { PremiumCardDirective } from '../../../../shared/directives/premium-card.directive';
 
 @Component({
@@ -10,5 +11,6 @@ import { PremiumCardDirective } from '../../../../shared/directives/premium-card
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FloatingWhatsappButtonComponent {
+  protected readonly i18n = inject(I18nService);
   @Input({ required: true }) href = '';
 }

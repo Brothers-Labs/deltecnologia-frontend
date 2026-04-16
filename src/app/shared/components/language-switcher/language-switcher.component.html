@@ -1,0 +1,12 @@
+<div class="language-switcher" [attr.aria-label]="i18n.t('ui.labels.language')">
+  @for (locale of i18n.availableLocales; track locale.code) {
+    <button
+      type="button"
+      class="language-switcher__button"
+      [ngClass]="{ 'language-switcher__button--active': i18n.locale() === locale.code }"
+      (click)="i18n.setLocale(locale.code)"
+    >
+      {{ locale.label }}
+    </button>
+  }
+</div>

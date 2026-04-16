@@ -29,13 +29,13 @@
     <div class="layout__sidenav-shell">
       <div class="layout__sidenav-header">
         <div>
-          <span class="eyebrow">Menu executivo</span>
+          <span class="eyebrow">{{ i18n.t('ui.labels.executiveMenu') }}</span>
           <h2>{{ company.shortName }}</h2>
-          <p>Tecnologia médica e engenharia clínica com visão estratégica.</p>
+          <p>{{ companyCopy().tagline }}</p>
           <div class="layout__mobile-brand-meta">
-            <span>Tecnologia Médica</span>
+            <span>{{ i18n.t('ui.labels.medicalTechnology') }}</span>
             <span class="layout__mobile-brand-dot"></span>
-            <span>Engenharia Clínica</span>
+            <span>{{ i18n.t('ui.labels.clinicalEngineering') }}</span>
           </div>
         </div>
 
@@ -45,7 +45,7 @@
           class="layout__close-button"
           appPremiumFx="icon"
           (click)="closeMobileMenu()"
-          aria-label="Fechar menu"
+          [attr.aria-label]="i18n.t('ui.accessibility.closeMenu')"
         >
           <mat-icon>close</mat-icon>
         </button>
@@ -53,7 +53,7 @@
 
       <div class="layout__sidenav-panel">
         <mat-nav-list class="layout__nav-list">
-          @for (item of navItems; track item.route) {
+          @for (item of navItems(); track item.route) {
             <a
               mat-list-item
               class="layout__mobile-link"
@@ -71,26 +71,28 @@
         <mat-divider></mat-divider>
 
         <div class="layout__menu-contact">
-          <!--
-          <a mat-stroked-button class="layout__mobile-login" appPremiumFx="button" routerLink="/login">
-            Entrar na área Del
-          </a>
-          -->
           <a mat-flat-button class="layout__mobile-cta" appPremiumFx="button" routerLink="/contato">
-            Falar com a Del
+            {{ i18n.t('ui.actions.talkToDel') }}
           </a>
-          <a mat-stroked-button class="layout__mobile-secondary" appPremiumFx="button" [href]="company.whatsappUrl" target="_blank" rel="noreferrer">
-            WhatsApp direto
+          <a
+            mat-stroked-button
+            class="layout__mobile-secondary"
+            appPremiumFx="button"
+            [href]="company.whatsappUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {{ i18n.t('ui.actions.directWhatsapp') }}
           </a>
         </div>
 
         <div class="layout__sidenav-meta" appPremiumFx="soft">
           <div>
-            <strong>Telefone</strong>
+            <strong>{{ i18n.t('ui.labels.phone') }}</strong>
             <a [href]="company.phoneUrl">{{ company.phone }}</a>
           </div>
           <div>
-            <strong>E-mail</strong>
+            <strong>{{ i18n.t('ui.labels.email') }}</strong>
             <a [href]="company.emailUrl">{{ company.email }}</a>
           </div>
         </div>
@@ -101,7 +103,7 @@
   <mat-sidenav-content>
     <app-header
       [companyName]="company.shortName"
-      [navItems]="navItems"
+      [navItems]="navItems()"
       (menuToggle)="toggleMobileMenu()"
     ></app-header>
 
@@ -111,8 +113,8 @@
 
     <app-footer
       [companyName]="company.name"
-      [tagline]="company.description"
-      [navItems]="navItems"
+      [tagline]="companyCopy().description"
+      [navItems]="navItems()"
       [phone]="company.phone"
       [whatsapp]="company.whatsapp"
       [email]="company.email"

@@ -1,8 +1,9 @@
 import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ContactChannelItem } from '../../../../core/models/info-card.model';
+import { I18nService } from '../../../../core/services/i18n.service';
 import { SectionTitleComponent } from '../../../../shared/components/section-title/section-title.component';
 import { PremiumCardDirective } from '../../../../shared/directives/premium-card.directive';
 import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reveal.directive';
@@ -15,6 +16,7 @@ import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reve
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QuickContactSectionComponent {
+  protected readonly i18n = inject(I18nService);
   protected readonly imagePath = 'assets/images/del-06.png';
 
   @Input({ required: true }) items: readonly ContactChannelItem[] = [];

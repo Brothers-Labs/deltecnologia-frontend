@@ -1,14 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
-import {
-  ABOUT_PILLARS,
-  BENEFIT_ITEMS,
-  COVERAGE_ITEMS,
-  DIFFERENTIAL_ITEMS,
-  EQUIPMENT_HIGHLIGHTS,
-  HERO_CONTENT,
-  QUICK_CONTACT_ITEMS,
-  SERVICE_ITEMS
-} from '../../../../core/constants/site-content.constants';
+import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
+import { getSiteContent } from '../../../../core/i18n/localized-content';
+import { I18nService } from '../../../../core/services/i18n.service';
 import { SeoService } from '../../../../core/services/seo.service';
 import { SectionTitleComponent } from '../../../../shared/components/section-title/section-title.component';
 import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reveal.directive';
@@ -41,37 +33,38 @@ import { ServicesSectionComponent } from '../../components/services-section/serv
   styleUrl: './home-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
   private readonly seoService = inject(SeoService);
+  protected readonly i18n = inject(I18nService);
+  private readonly siteContent = computed(() => getSiteContent(this.i18n.locale()));
 
-  protected readonly heroContent = HERO_CONTENT;
-  protected readonly aboutPillars = ABOUT_PILLARS;
-  protected readonly benefits = BENEFIT_ITEMS;
-  protected readonly services = SERVICE_ITEMS;
-  protected readonly equipmentHighlights = EQUIPMENT_HIGHLIGHTS;
-  protected readonly differentials = DIFFERENTIAL_ITEMS;
-  protected readonly coverage = COVERAGE_ITEMS;
-  protected readonly quickContactItems = QUICK_CONTACT_ITEMS;
+  protected readonly heroContent = computed(() => this.siteContent().hero);
+  protected readonly aboutPillars = computed(() => this.siteContent().aboutPillars);
+  protected readonly benefits = computed(() => this.siteContent().benefits);
+  protected readonly services = computed(() => this.siteContent().services);
+  protected readonly equipmentHighlights = computed(() => this.siteContent().equipmentHighlights);
+  protected readonly differentials = computed(() => this.siteContent().differentials);
+  protected readonly coverage = computed(() => this.siteContent().coverage);
+  protected readonly quickContactItems = computed(() => this.siteContent().quickContact);
+  protected readonly executiveStats = computed(
+    () => this.i18n.value<readonly { title: string; description: string }[]>('pages.home.executive.stats') ?? []
+  );
 
-  ngOnInit(): void {
-    this.seoService.updatePage({
-      title: 'Engenharia Clínica e Tecnologia Médica',
-      description:
-        'Site institucional da Del Tecnologia com soluções em engenharia clínica, gestão de ativos eletromédicos, manutenção e consultoria técnica.',
-      path: '/',
-      keywords: [
-        'engenharia clínica',
-        'tecnologia médica',
-        'gestão de ativos eletromédicos',
-        'manutenção hospitalar',
-        'engenharia clínica em itajaí'
-      ],
-      structuredData: [
-        this.seoService.createOrganizationSchema(),
-        this.seoService.createProfessionalServiceSchema('/'),
-        this.seoService.createWebSiteSchema(),
-        this.seoService.createBreadcrumbSchema([{ name: 'Início', path: '/' }])
-      ]
+  constructor() {
+    effect(() => {
+      this.i18n.locale();
+      this.seoService.updatePage({
+        title: this.i18n.t('seo.home.title'),
+        description: this.i18n.t('seo.home.description'),
+        path: '/',
+        keywords: this.i18n.value<readonly string[]>('seo.home.keywords'),
+        structuredData: [
+          this.seoService.createOrganizationSchema(),
+          this.seoService.createProfessionalServiceSchema('/'),
+          this.seoService.createWebSiteSchema(),
+          this.seoService.createBreadcrumbSchema([{ name: this.i18n.t('seo.home.breadcrumbs.0'), path: '/' }])
+        ]
+      });
     });
   }
 }

@@ -156,11 +156,19 @@
 
 @media (max-width: 1100px) {
   .header__toolbar {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
   }
 
-  .header__nav,
+  .header__nav {
+    display: none;
+  }
+
   .header__actions {
+    display: inline-flex;
+    justify-self: end;
+  }
+
+  .header__cta {
     display: none;
   }
 
@@ -172,6 +180,7 @@
 @media (max-width: 640px) {
   .header__toolbar {
     min-height: 76px;
+    gap: 0.65rem;
     padding: 0.8rem 1rem;
   }
 
@@ -182,5 +191,14 @@
 
   .brand__title-row strong {
     font-size: 1rem;
+  }
+
+  .brand__eyebrow {
+    display: none;
+  }
+
+  .header__actions {
+    transform: scale(0.94);
+    transform-origin: center right;
   }
 }

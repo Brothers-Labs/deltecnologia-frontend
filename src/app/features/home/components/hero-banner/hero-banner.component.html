@@ -5,9 +5,9 @@
     <p>{{ content.description }}</p>
 
     <div class="hero__trust">
-      <span>Gestão técnica com foco em previsibilidade</span>
-      <span>Atuação consultiva para instituições de saúde</span>
-      <span>Estrutura para expansão e integração futura</span>
+      @for (item of trustItems; track item.title) {
+        <span>{{ item.title }}</span>
+      }
     </div>
 
     <div class="hero__actions">
@@ -19,7 +19,7 @@
       </a>
     </div>
 
-    <div class="hero__metrics" aria-label="Indicadores institucionais">
+    <div class="hero__metrics" [attr.aria-label]="i18n.t('ui.accessibility.institutionalIndicators')">
       @for (metric of content.metrics; track metric.label) {
         <div class="hero__metric" appPremiumFx="soft" appScrollReveal [appScrollRevealDelay]="180" appScrollRevealOrigin="scale">
           <strong>{{ metric.value }}</strong>
@@ -33,8 +33,8 @@
     <div class="hero__orb hero__orb--one"></div>
     <div class="hero__orb hero__orb--two"></div>
     <div class="hero__visual-badge" appPremiumFx="soft">
-      <strong>Del Tecnologia</strong>
-      <span>Engenharia Clínica de alto padrão</span>
+      <strong>{{ i18n.t('company.shortName') }}</strong>
+      <span>{{ i18n.t('ui.labels.clinicalEngineering') }}</span>
     </div>
     <img
       [ngSrc]="content.imagePath"

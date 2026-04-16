@@ -1,9 +1,9 @@
 <section class="section-block benefits">
   <div class="page-shell">
     <app-section-title
-      eyebrow="Benefícios"
-      [title]="title"
-      [description]="description"
+      [eyebrow]="i18n.t('pages.benefitsSection.eyebrow')"
+      [title]="title || i18n.t('pages.benefitsSection.defaultTitle')"
+      [description]="description || i18n.t('pages.benefitsSection.defaultDescription')"
     ></app-section-title>
 
     <div class="grid-auto-fit">

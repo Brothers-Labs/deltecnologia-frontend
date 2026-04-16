@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ContactService } from '../../../../core/services/contact.service';
+import { I18nService } from '../../../../core/services/i18n.service';
 import { PremiumCardDirective } from '../../../../shared/directives/premium-card.directive';
 import { ScrollRevealDirective } from '../../../../shared/directives/scroll-reveal.directive';
 
@@ -43,6 +44,7 @@ export class ContactFormComponent {
   private readonly contactService = inject(ContactService);
   private readonly snackBar = inject(MatSnackBar);
   private readonly destroyRef = inject(DestroyRef);
+  protected readonly i18n = inject(I18nService);
 
   protected readonly submitting = signal(false);
   protected readonly form: ContactFormGroup = this.formBuilder.group({
@@ -67,20 +69,14 @@ export class ContactFormComponent {
       .subscribe({
         next: () => {
           this.submitting.set(false);
-          this.form.reset({
-            name: '',
-            email: '',
-            phone: '',
-            company: '',
-            message: ''
-          });
-          this.snackBar.open('Mensagem enviada com sucesso. Em breve entraremos em contato.', 'Fechar', {
+          this.form.reset({ name: '', email: '', phone: '', company: '', message: '' });
+          this.snackBar.open(this.i18n.t('forms.feedback.contactSuccess'), this.i18n.t('forms.feedback.close'), {
             duration: 5000
           });
         },
         error: () => {
           this.submitting.set(false);
-          this.snackBar.open('Não foi possível enviar agora. Tente novamente em instantes.', 'Fechar', {
+          this.snackBar.open(this.i18n.t('forms.feedback.contactError'), this.i18n.t('forms.feedback.close'), {
             duration: 5000
           });
         }
@@ -91,17 +87,19 @@ export class ContactFormComponent {
     const control = this.form.controls[controlName];
 
     if (control.hasError('required')) {
-      return 'Este campo é obrigatório.';
+      return this.i18n.t('forms.errors.required');
     }
 
     if (control.hasError('email')) {
-      return 'Informe um e-mail válido.';
+      return this.i18n.t('forms.errors.invalidEmail');
     }
 
     if (control.hasError('minlength')) {
-      return `Preencha ao menos ${control.getError('minlength').requiredLength} caracteres.`;
+      return this.i18n.t('forms.errors.minLength', {
+        count: control.getError('minlength').requiredLength
+      });
     }
 
-    return 'Verifique este campo.';
+    return this.i18n.t('forms.errors.invalidFieldShort');
   }
 }

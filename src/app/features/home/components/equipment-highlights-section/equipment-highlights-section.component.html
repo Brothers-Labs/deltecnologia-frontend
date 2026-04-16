@@ -3,21 +3,19 @@
     <div class="equipment-highlights__hero surface-panel" appScrollReveal appScrollRevealOrigin="up">
       <div class="equipment-highlights__copy">
         <app-section-title
-          eyebrow="Equipamentos em destaque"
-          title="Atuação técnica em ativos estratégicos para diagnóstico, monitorização e suporte à vida."
-          description="A Del Tecnologia trabalha com equipamentos críticos para a rotina hospitalar, apoiando disponibilidade, segurança e previsibilidade operacional em diferentes frentes assistenciais."
+          [eyebrow]="i18n.t('pages.equipmentSection.eyebrow')"
+          [title]="i18n.t('pages.equipmentSection.title')"
+          [description]="i18n.t('pages.equipmentSection.description')"
         ></app-section-title>
       </div>
 
       <div class="equipment-highlights__summary">
-        <div>
-          <strong>6 frentes críticas</strong>
-          <span>Equipamentos com alta relevância clínica e operacional.</span>
-        </div>
-        <div>
-          <strong>Leitura consultiva</strong>
-          <span>Manutenção, conformidade e governança técnica em cada ativo.</span>
-        </div>
+        @for (item of summaryItems; track item.title) {
+          <div>
+            <strong>{{ item.title }}</strong>
+            <span>{{ item.description }}</span>
+          </div>
+        }
       </div>
     </div>
 

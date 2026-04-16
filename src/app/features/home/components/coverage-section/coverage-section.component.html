@@ -1,9 +1,9 @@
 <section class="section-block">
   <div class="page-shell">
     <app-section-title
-      eyebrow="Área de atuação"
-      title="Atendimento preparado para operações críticas e ambientes assistenciais de alta responsabilidade."
-      description="A Del Tecnologia atua com visão técnica e organizacional para diferentes perfis de instituições de saúde que dependem de ativos eletromédicos confiáveis e bem geridos."
+      [eyebrow]="i18n.t('pages.coverageSection.eyebrow')"
+      [title]="i18n.t('pages.coverageSection.title')"
+      [description]="i18n.t('pages.coverageSection.description')"
     ></app-section-title>
 
     <div class="coverage__layout">
@@ -16,15 +16,15 @@
       <figure class="coverage__visual surface-panel" appScrollReveal appScrollRevealOrigin="left">
         <img
           [ngSrc]="imagePath"
-          alt="Atuação da Del Tecnologia em operações de saúde, hospitais e ambientes assistenciais."
+          [alt]="i18n.t('pages.coverageSection.figureAlt')"
           width="1536"
           height="1024"
           sizes="(max-width: 1024px) 92vw, 38vw"
           loading="lazy"
         >
         <figcaption>
-          <strong>Presença preparada para ambientes críticos</strong>
-          <span>Hospitais, clínicas, laboratórios e operações com alta exigência técnica.</span>
+          <strong>{{ i18n.t('pages.coverageSection.figureTitle') }}</strong>
+          <span>{{ i18n.t('pages.coverageSection.figureDescription') }}</span>
         </figcaption>
       </figure>
     </div>

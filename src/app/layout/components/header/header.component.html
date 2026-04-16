@@ -1,6 +1,6 @@
 <header class="header">
   <mat-toolbar class="header__toolbar">
-    <a class="brand" routerLink="/" aria-label="Ir para a página inicial da Del Tecnologia">
+    <a class="brand" routerLink="/" [attr.aria-label]="i18n.t('ui.accessibility.goToHomepage')">
       <span class="brand__mark">
         <img
           ngSrc="assets/images/del-02.png"
@@ -11,14 +11,14 @@
         >
       </span>
       <span class="brand__text">
-        <small class="brand__eyebrow">Tecnologia Médica</small>
+        <small class="brand__eyebrow">{{ i18n.t('ui.labels.medicalTechnology') }}</small>
         <span class="brand__title-row">
           <strong>{{ companyName }}</strong>
         </span>
       </span>
     </a>
 
-    <nav class="header__nav" aria-label="Navegação principal">
+    <nav class="header__nav" [attr.aria-label]="i18n.t('ui.accessibility.mainNavigation')">
       @for (item of navItems; track item.route) {
         <a
           class="header__link"
@@ -36,15 +36,10 @@
     </nav>
 
     <div class="header__actions">
-      <!--
-      <a mat-stroked-button class="header__login" appPremiumFx="button" [routerLink]="loginRoute">
-        <mat-icon>login</mat-icon>
-        Entrar
-      </a>
-      -->
+      <app-language-switcher></app-language-switcher>
 
       <a mat-flat-button class="header__cta" appPremiumFx="button" color="primary" [routerLink]="contactRoute">
-        Falar com a Del
+        {{ i18n.t('ui.actions.talkToDel') }}
       </a>
     </div>
 
@@ -54,7 +49,7 @@
       appPremiumFx="icon"
       type="button"
       (click)="menuToggle.emit()"
-      aria-label="Abrir menu de navegação"
+      [attr.aria-label]="i18n.t('ui.accessibility.openMenu')"
     >
       <mat-icon>menu</mat-icon>
     </button>
