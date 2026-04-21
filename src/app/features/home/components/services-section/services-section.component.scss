@@ -1,3 +1,16 @@
+:host > section .page-shell > app-section-title {
+  display: block;
+  margin-bottom: 1.6rem;
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(7, 13, 22, 0.7), rgba(7, 13, 22, 0.54)),
+    radial-gradient(circle at top left, rgba(148, 163, 184, 0.18), transparent 36%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.28);
+  backdrop-filter: blur(16px);
+}
+
 .services__spotlight {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
@@ -114,6 +127,10 @@
 }
 
 @media (max-width: 991px) {
+  :host > section .page-shell > app-section-title {
+    padding: 1.35rem;
+  }
+
   .services__spotlight {
     grid-template-columns: 1fr;
   }

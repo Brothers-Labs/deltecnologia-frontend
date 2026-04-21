@@ -9,6 +9,18 @@
   gap: 1.5rem;
 }
 
+.about__intro app-section-title {
+  display: block;
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(7, 13, 22, 0.7), rgba(7, 13, 22, 0.54)),
+    radial-gradient(circle at top left, rgba(148, 163, 184, 0.18), transparent 36%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.28);
+  backdrop-filter: blur(16px);
+}
+
 .about__content {
   padding: 2.4rem;
   border-radius: var(--radius-xl);
@@ -66,6 +78,10 @@
 @media (max-width: 991px) {
   .about {
     grid-template-columns: 1fr;
+  }
+
+  .about__intro app-section-title {
+    padding: 1.35rem;
   }
 
   .about__visual img {
