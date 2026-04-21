@@ -47,6 +47,7 @@ import { ServicesSectionComponent } from '../../components/services-section/serv
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePageComponent {
+  private readonly backgroundVideoRetryDelays = [0, 150, 600, 1800] as const;
   private readonly destroyRef = inject(DestroyRef);
   private readonly seoService = inject(SeoService);
   protected readonly i18n = inject(I18nService);
@@ -112,15 +113,27 @@ export class HomePageComponent {
       }
     };
 
+    const handleUserActivation = () => {
+      this.playBackgroundVideo();
+    };
+
     window.addEventListener('pageshow', this.playBackgroundVideo, { passive: true });
     document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('touchstart', handleUserActivation, { passive: true });
+    window.addEventListener('pointerdown', handleUserActivation, { passive: true });
+    window.addEventListener('scroll', handleUserActivation, { passive: true });
 
     this.destroyRef.onDestroy(() => {
       window.removeEventListener('pageshow', this.playBackgroundVideo);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('touchstart', handleUserActivation);
+      window.removeEventListener('pointerdown', handleUserActivation);
+      window.removeEventListener('scroll', handleUserActivation);
     });
 
-    this.playBackgroundVideo();
+    for (const delay of this.backgroundVideoRetryDelays) {
+      window.setTimeout(this.playBackgroundVideo, delay);
+    }
   }
 
   private readonly playBackgroundVideo = (): void => {
@@ -133,6 +146,15 @@ export class HomePageComponent {
     video.defaultMuted = true;
     video.loop = true;
     video.playsInline = true;
+    video.autoplay = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('autoplay', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', 'true');
+
+    if (video.readyState === 0) {
+      video.load();
+    }
 
     const playAttempt = video.play();
     if (playAttempt) {
