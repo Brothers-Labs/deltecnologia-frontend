@@ -1,4 +1,3 @@
-import { AppRoute } from '../enums/app-route.enum';
 import { NavigationItem } from '../models/navigation-item.model';
 
 export const NAVIGATION_ITEMS: readonly NavigationItem[] = [
@@ -9,17 +8,20 @@ export const NAVIGATION_ITEMS: readonly NavigationItem[] = [
   },
   {
     label: 'Sobre',
-    route: `/${AppRoute.About}`,
+    route: '/',
+    fragment: 'sobre',
     icon: 'corporate_fare'
   },
   {
     label: 'Serviços',
-    route: `/${AppRoute.Services}`,
+    route: '/',
+    fragment: 'servicos',
     icon: 'medical_services'
   },
   {
     label: 'Contato',
-    route: `/${AppRoute.Contact}`,
+    route: '/',
+    fragment: 'contato',
     icon: 'mail'
   }
 ] as const;

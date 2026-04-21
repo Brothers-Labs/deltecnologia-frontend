@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { AppRoute } from '../../../core/enums/app-route.enum';
 import { NavigationItem } from '../../../core/models/navigation-item.model';
 import { I18nService } from '../../../core/services/i18n.service';
 import { LanguageSwitcherComponent } from '../../../shared/components/language-switcher/language-switcher.component';
@@ -18,8 +17,8 @@ import { PremiumCardDirective } from '../../../shared/directives/premium-card.di
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
-  protected readonly loginRoute = `/${AppRoute.Login}`;
-  protected readonly contactRoute = `/${AppRoute.Contact}`;
+  protected readonly contactRoute = '/';
+  protected readonly contactFragment = 'contato';
   protected readonly i18n = inject(I18nService);
 
   @Input({ required: true }) navItems: readonly NavigationItem[] = [];

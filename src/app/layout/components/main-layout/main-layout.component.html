@@ -59,6 +59,7 @@
               class="layout__mobile-link"
               appPremiumFx="soft"
               [routerLink]="item.route"
+              [fragment]="item.fragment"
               routerLinkActive="layout__mobile-link--active"
               [routerLinkActiveOptions]="{ exact: item.exact ?? item.route === '/' }"
             >
@@ -71,7 +72,7 @@
         <mat-divider></mat-divider>
 
         <div class="layout__menu-contact">
-          <a mat-flat-button class="layout__mobile-cta" appPremiumFx="button" routerLink="/contato">
+          <a mat-flat-button class="layout__mobile-cta" appPremiumFx="button" routerLink="/" fragment="contato">
             {{ i18n.t('ui.actions.talkToDel') }}
           </a>
           <a

@@ -24,6 +24,7 @@
           class="header__link"
           appPremiumFx="soft"
           [routerLink]="item.route"
+          [fragment]="item.fragment"
           routerLinkActive="header__link--active"
           [routerLinkActiveOptions]="{ exact: item.exact ?? item.route === '/' }"
         >
@@ -38,7 +39,7 @@
     <div class="header__actions">
       <app-language-switcher></app-language-switcher>
 
-      <a mat-flat-button class="header__cta" appPremiumFx="button" color="primary" [routerLink]="contactRoute">
+      <a mat-flat-button class="header__cta" appPremiumFx="button" color="primary" [routerLink]="contactRoute" [fragment]="contactFragment">
         {{ i18n.t('ui.actions.talkToDel') }}
       </a>
     </div>
