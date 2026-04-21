@@ -12,6 +12,7 @@
       poster="assets/images/hero-del.webp"
       disablepictureinpicture
       disableremoteplayback
+      (loadedmetadata)="onBackgroundVideoCanPlay()"
       (canplay)="onBackgroundVideoCanPlay()"
       (loadeddata)="onBackgroundVideoCanPlay()"
       (playing)="onBackgroundVideoPlaying()"
@@ -20,6 +21,7 @@
       (stalled)="onBackgroundVideoInterrupted()"
       (suspend)="onBackgroundVideoInterrupted()"
       (emptied)="onBackgroundVideoInterrupted()"
+      (error)="onBackgroundVideoError()"
     >
       <source src="assets/videos/Del.mp4" type="video/mp4">
       <source src="assets/videos/Del.mov" type="video/quicktime">

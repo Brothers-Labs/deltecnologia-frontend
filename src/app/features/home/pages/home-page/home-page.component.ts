@@ -47,7 +47,7 @@ import { ServicesSectionComponent } from '../../components/services-section/serv
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePageComponent {
-  private readonly backgroundVideoRetryDelays = [0, 150, 600, 1800] as const;
+  private readonly backgroundVideoRetryDelays = [0, 250, 900] as const;
   private readonly destroyRef = inject(DestroyRef);
   private readonly seoService = inject(SeoService);
   protected readonly i18n = inject(I18nService);
@@ -94,6 +94,7 @@ export class HomePageComponent {
   }
 
   protected onBackgroundVideoCanPlay(): void {
+    this.backgroundVideoReady.set(true);
     this.playBackgroundVideo();
   }
 
@@ -102,8 +103,11 @@ export class HomePageComponent {
   }
 
   protected onBackgroundVideoInterrupted(): void {
-    this.backgroundVideoReady.set(false);
     this.playBackgroundVideo();
+  }
+
+  protected onBackgroundVideoError(): void {
+    this.backgroundVideoReady.set(false);
   }
 
   private bindBackgroundVideoPlayback(): void {
@@ -151,10 +155,6 @@ export class HomePageComponent {
     video.setAttribute('autoplay', '');
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', 'true');
-
-    if (video.readyState === 0) {
-      video.load();
-    }
 
     const playAttempt = video.play();
     if (playAttempt) {
