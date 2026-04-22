@@ -6,6 +6,7 @@ export interface HeroMetric {
 export interface HeroAction {
   readonly label: string;
   readonly route: string;
+  readonly fragment?: string;
 }
 
 export interface HeroContent {

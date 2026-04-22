@@ -12,10 +12,10 @@
       </div>
 
       <div class="hero__actions">
-        <a mat-flat-button class="hero__primary-action" appPremiumFx="button" [routerLink]="content.primaryAction.route">
+        <a mat-flat-button class="hero__primary-action" appPremiumFx="button" [routerLink]="content.primaryAction.route" [fragment]="content.primaryAction.fragment">
           {{ content.primaryAction.label }}
         </a>
-        <a mat-stroked-button class="hero__secondary-action" appPremiumFx="button" [routerLink]="content.secondaryAction.route">
+        <a mat-stroked-button class="hero__secondary-action" appPremiumFx="button" [routerLink]="content.secondaryAction.route" [fragment]="content.secondaryAction.fragment">
           {{ content.secondaryAction.label }}
         </a>
       </div>

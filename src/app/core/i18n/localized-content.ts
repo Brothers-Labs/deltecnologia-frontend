@@ -60,8 +60,8 @@ const enSiteContent: LocalizedSiteContent = {
     title: 'Reliable medical technology to raise your institution’s operational performance.',
     description:
       'Del Tecnologia combines asset management, maintenance, and applied intelligence to improve care safety, technical predictability, and efficiency across healthcare environments.',
-    primaryAction: { label: 'Request contact', route: '/contato' },
-    secondaryAction: { label: 'Explore our services', route: '/servicos' },
+    primaryAction: { label: 'Request contact', route: '/', fragment: 'contato' },
+    secondaryAction: { label: 'Explore our services', route: '/', fragment: 'servicos' },
     metrics: [
       { value: '360°', label: 'Technical asset management' },
       { value: 'High', label: 'Operational availability' },

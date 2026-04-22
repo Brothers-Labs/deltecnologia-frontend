@@ -11,11 +11,13 @@ export const HERO_CONTENT: HeroContent = {
     'A Del Tecnologia integra gestão, manutenção e inteligência aplicada aos ativos eletromédicos para ampliar segurança assistencial, previsibilidade técnica e eficiência em ambientes hospitalares.',
   primaryAction: {
     label: 'Solicitar Contato',
-    route: '/contato'
+    route: '/',
+    fragment: 'contato'
   },
   secondaryAction: {
     label: 'Conheça Nossos Serviços',
-    route: '/servicos'
+    route: '/',
+    fragment: 'servicos'
   },
   metrics: [
     {
